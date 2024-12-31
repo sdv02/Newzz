@@ -91,14 +91,20 @@ export default function Sports() {
         </Paper>
       </Box>
       {/* <Header tab={"sports"} /> */}
-      <OtherPage items={filtered.slice(0, 4) || itemss} />
+      <OtherPage
+        items={filtered.length > 0 ? filtered.slice(0, 4) : itemss.slice(0, 4)}
+      />
       <Box
         sx={{
           width: { md: "75%", sm: "100%" },
           margin: { md: "0px 220px", sm: "10px" },
         }}
       >
-        <Relevant items={filtered.slice(4, -1) || itemss} />
+        <Relevant
+          items={
+            filtered.length > 0 ? filtered.slice(4, -1) : itemss.slice(4, -1)
+          }
+        />
       </Box>
     </Box>
   );

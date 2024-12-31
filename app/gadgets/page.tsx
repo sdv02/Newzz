@@ -92,14 +92,20 @@ export default function Gadgets() {
         </Paper>
       </Box>
       {/* <Header tab={"gadgets"}/> */}
-      <OtherPage items={filtered.slice(0, 3) || itemss} />
+      <OtherPage
+        items={filtered.length > 0 ? filtered.slice(0, 4) : itemss.slice(0, 4)}
+      />
       <Box
         sx={{
           width: { md: "75%", sm: "100%" },
           margin: { md: "0px 220px", sm: "10px" },
         }}
       >
-        <Relevant items={filtered.slice(3, -1) || itemss} />
+        <Relevant
+          items={
+            filtered.length > 0 ? filtered.slice(3, -1) : itemss.slice(3, -1)
+          }
+        />
       </Box>
     </Box>
   );

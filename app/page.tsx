@@ -174,7 +174,7 @@ export default function App() {
             />
           </Paper>
         </Box>
-        <Headlines items={headlines || itemss} />
+        <Headlines items={headlines.length > 0 ? headlines : itemss} />
       </Box>
       <Box sx={{ margin: "none", width: "100%" }}>
         {searchInput === "" ? (
@@ -186,10 +186,10 @@ export default function App() {
             }}
           >
             <Grid item xs={8}>
-              <Relevant items={data || itemss} />
+              <Relevant items={data.length > 0 ? data : itemss} />
             </Grid>
             <Grid item xs={4}>
-              <Popularity items={popular || itemss} />
+              <Popularity items={popular.length > 0 ? popular : itemss} />
             </Grid>
           </Grid>
         ) : searchResults.length === 0 ? (
@@ -204,10 +204,10 @@ export default function App() {
               }}
             >
               <Grid item xs={8}>
-                <Relevant items={data || itemss} />
+                <Relevant items={data.length > 0 ? data : itemss} />
               </Grid>
               <Grid item xs={4}>
-                <Popularity items={popular || itemss} />
+                <Popularity items={popular.length > 0 ? popular : itemss} />
               </Grid>
             </Grid>
           </>
