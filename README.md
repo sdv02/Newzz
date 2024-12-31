@@ -1,3 +1,8 @@
+
+Here ia my application, check it out ->>>> https://newzz-five.vercel.app/
+
+(note: it is static due to restriction on the api on production, but the application completely uses the api with search functionality, check it out on your local)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
