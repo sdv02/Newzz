@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ApiResponseType } from "../../components/types";
 import { AppDispatch } from "../../store/store";
 import { fetchTabData } from "../../store/features/tabsDataSlice";
+import { itemss } from "../../components/consts";
 
 export default function HealthAndFitness() {
   const dispatch = useDispatch<AppDispatch>();
@@ -87,14 +88,14 @@ export default function HealthAndFitness() {
         </Paper>
       </Box>
       {/* <Header tab={"health and fitness"}/> */}
-      <OtherPage items={filtered.slice(0, 4)} />
+      <OtherPage items={filtered.slice(0, 4) || itemss} />
       <Box
         sx={{
           width: { md: "75%", sm: "100%" },
           margin: { md: "0px 220px", sm: "10px" },
         }}
       >
-        <Relevant items={filtered.slice(4, -1)} />
+        <Relevant items={filtered.slice(4, -1) || itemss} />
       </Box>
     </Box>
   );

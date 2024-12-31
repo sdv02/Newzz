@@ -17,6 +17,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { AppDispatch } from "../store/store";
 import { ApiResponseType } from "../components/types";
+import { itemss } from "../components/consts";
 
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 export default function App() {
@@ -173,7 +174,7 @@ export default function App() {
             />
           </Paper>
         </Box>
-        <Headlines items={headlines} />
+        <Headlines items={headlines || itemss} />
       </Box>
       <Box sx={{ margin: "none", width: "100%" }}>
         {searchInput === "" ? (
@@ -185,10 +186,10 @@ export default function App() {
             }}
           >
             <Grid item xs={8}>
-              <Relevant items={data} />
+              <Relevant items={data || itemss} />
             </Grid>
             <Grid item xs={4}>
-              <Popularity items={popular} />
+              <Popularity items={popular || itemss} />
             </Grid>
           </Grid>
         ) : searchResults.length === 0 ? (
@@ -203,10 +204,10 @@ export default function App() {
               }}
             >
               <Grid item xs={8}>
-                <Relevant items={data} />
+                <Relevant items={data || itemss} />
               </Grid>
               <Grid item xs={4}>
-                <Popularity items={popular} />
+                <Popularity items={popular || itemss} />
               </Grid>
             </Grid>
           </>
