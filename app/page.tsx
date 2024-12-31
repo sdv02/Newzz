@@ -149,12 +149,11 @@ export default function App() {
 
   return (
     <Box
-      maxWidth={"xl"}
       py={4}
       sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
-      <Box sx={{ display: "grid", justifyItems: "center" }}>
-        <Box sx={{ display: "flex", width: "250px" }}>
+      <Box sx={{ display: "grid" }}>
+        <Box sx={{ float: "right", margin: "20px 650px", width: "250px" }}>
           <Paper
             component="form"
             sx={{
