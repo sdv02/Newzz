@@ -26,21 +26,21 @@ export default function HealthAndFitness() {
   }, [dispatch]);
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const [query, setQuery] = useState<string>(searchParams.get("search") || "");
+  //const searchParams = useSearchParams();
+  const [query, setQuery] = useState<string>("");
 
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams);
-      params.set(name, value);
-      return params.toString();
-    },
-    [searchParams]
-  );
+  // const createQueryString = useCallback(
+  //   (name: string, value: string) => {
+  //     const params = new URLSearchParams(searchParams);
+  //     params.set(name, value);
+  //     return params.toString();
+  //   },
+  //   [searchParams]
+  // );
 
-  useEffect(() => {
-    setQuery(searchParams.get("search") || "");
-  }, [searchParams]);
+  // useEffect(() => {
+  //   setQuery(searchParams.get("search") || "");
+  // }, [searchParams]);
 
   function filterBySearch(item) {
     const regex = new RegExp(query, "i");
@@ -78,7 +78,7 @@ export default function HealthAndFitness() {
           <Button
             color="secondary"
             onClick={(e) => {
-              router.push(pathname + "?" + createQueryString("search", query));
+              // router.push(pathname + "?" + createQueryString("search", query));
             }}
           >
             {" "}

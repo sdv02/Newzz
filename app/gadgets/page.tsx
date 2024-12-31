@@ -5,7 +5,7 @@ import axios from "axios";
 import { Box, Paper, InputBase, Button } from "@mui/material/";
 import data from "../data";
 import { useSearchParams } from "next/navigation";
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, Suspense } from "react";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import SearchIcon from "@mui/icons-material/Search";
@@ -26,21 +26,21 @@ export default function Gadgets() {
   }, [dispatch]);
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const [query, setQuery] = useState<string>(searchParams.get("search") || "");
+  // const searchParams = useSearchParams();
+  const [query, setQuery] = useState<string>("");
 
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams);
-      params.set(name, value);
-      return params.toString();
-    },
-    [searchParams]
-  );
+  // const createQueryString = useCallback(
+  //   (name: string, value: string) => {
+  //     const params = new URLSearchParams(searchParams);
+  //     params.set(name, value);
+  //     return params.toString();
+  //   },
+  //   [searchParams]
+  // );
 
-  useEffect(() => {
-    setQuery(searchParams.get("search") || "");
-  }, [searchParams]);
+  // useEffect(() => {
+  //   setQuery(searchParams.get("search") || "");
+  // }, [searchParams]);
 
   function filterBySearch(item) {
     const regex = new RegExp(query, "i");
@@ -80,7 +80,9 @@ export default function Gadgets() {
           <Button
             color="secondary"
             onClick={(e) => {
-              router.push(pathname + "?" + createQueryString("search", query));
+              // router.push(
+              //   pathname + "?" + createQueryString("search", query)
+              // );
             }}
           >
             {" "}

@@ -27,8 +27,8 @@ export default function Sports() {
   const content = data;
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const [query, setQuery] = useState<string>(searchParams.get("search") || "");
+  // const searchParams = useSearchParams();
+  const [query, setQuery] = useState<string>("");
 
   // const createQueryString = useCallback(
   //     (name, value) => {
@@ -45,9 +45,9 @@ export default function Sports() {
 
   const handleSearchClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
-    const params = new URLSearchParams(searchParams);
-    params.set("search", query);
-    router.push(`${pathname}?${params.toString()}`);
+    // const params = new URLSearchParams(searchParams);
+    // params.set("search", query);
+    // router.push(`${pathname}?${params.toString()}`);
   };
   function filterBySearch(item) {
     const regex = new RegExp(query, "i");
